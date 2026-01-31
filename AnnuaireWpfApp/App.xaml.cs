@@ -1,5 +1,6 @@
 using System.Windows;
 using AnnuaireModel;
+using AnnuaireWpfApp.Infrastructure;
 
 namespace AnnuaireWpfApp
 {
@@ -11,10 +12,19 @@ namespace AnnuaireWpfApp
 
             DatabaseInitializer.InitializeDatabase();
 
+            ServiceLocator.Initialize();
+
             FrameworkElement.LanguageProperty.OverrideMetadata(
                 typeof(FrameworkElement),
                 new FrameworkPropertyMetadata(
                     System.Windows.Markup.XmlLanguage.GetLanguage("fr-FR")));
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            // libérer les ressources de la base de données
+            ServiceLocator.Dispose();
+            base.OnExit(e);
         }
     }
 }
