@@ -1,5 +1,6 @@
 using AnnuaireModel.Context;
 using AnnuaireWpfApp.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace AnnuaireWpfApp.Infrastructure
 {
@@ -12,7 +13,11 @@ namespace AnnuaireWpfApp.Infrastructure
 
         public static void Initialize()
         {
-            _context = new AnnuaireContext();
+            // configuration pour SQLite
+            var optionsBuilder = new DbContextOptionsBuilder<AnnuaireContext>();
+            optionsBuilder.UseSqlite("Data Source=AnnuaireEntreprise.db");
+            
+            _context = new AnnuaireContext(optionsBuilder.Options);
             _siteService = new SiteService(_context);
             _serviceService = new ServiceService(_context);
             _employeService = new EmployeService(_context);

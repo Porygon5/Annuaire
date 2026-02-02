@@ -1,19 +1,148 @@
 <Window x:Class="AnnuaireWpfApp.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
         Title="Annuaire Entreprise" 
         Height="700" 
         Width="1200"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource MaterialDesign.Brush.Background}">
+        KeyDown="Window_KeyDown">
+
     <Grid>
-        <TextBlock Text="Annuaire Entreprise" 
-                   FontSize="32"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu gauche -->
+        <Border Grid.Column="0" Background="#2196F3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Titre -->
+                <TextBlock Grid.Row="0"
+                          Text="ANNUAIRE" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="White"
+                          Margin="20,30,20,40"
+                          HorizontalAlignment="Center"/>
+
+                <!-- Menu -->
+                <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                    <Button x:Name="btnEmployes" 
+                           Content="Employés" 
+                           Margin="10,5"
+                           Padding="10,2"
+                           Background="Transparent"
+                           Foreground="White"
+                           BorderThickness="0"
+                           HorizontalAlignment="Stretch"
+                           HorizontalContentAlignment="Left"
+                           Click="BtnEmployes_Click"/>
+
+                    <Button x:Name="btnSites" 
+                           Content="Sites" 
+                           Margin="10,5"
+                           Padding="10,2"
+                           Background="Transparent"
+                           Foreground="White"
+                           BorderThickness="0"
+                           HorizontalAlignment="Stretch"
+                           HorizontalContentAlignment="Left"
+                           Click="BtnSites_Click"/>
+
+                    <Button x:Name="btnServices" 
+                           Content="Services" 
+                           Margin="10,5"
+                           Padding="10,2"
+                           Background="Transparent"
+                           Foreground="White"
+                           BorderThickness="0"
+                           HorizontalAlignment="Stretch"
+                           HorizontalContentAlignment="Left"
+                           Click="BtnServices_Click"/>
+
+                    <Separator Margin="10,20" Background="White" Opacity="0.3"/>
+
+                    <!-- Menu admin -->
+                    <StackPanel x:Name="pnlAdmin" Visibility="Collapsed">
+                        <TextBlock Text="ADMINISTRATION" 
+                                  FontSize="12" 
+                                  Foreground="White"
+                                  Opacity="0.7"
+                                  Margin="15,10,15,10"/>
+
+                        <Button x:Name="btnGestionEmployes" 
+                               Content="Gérer Employés" 
+                               Margin="10,5"
+                               Padding="10,2"
+                               Background="Transparent"
+                               Foreground="White"
+                               BorderThickness="0"
+                               HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Left"
+                               Click="BtnGestionEmployes_Click"/>
+
+                        <Button x:Name="btnGestionSites" 
+                               Content="Gérer Sites" 
+                               Margin="10,5"
+                               Padding="10,2"
+                               Background="Transparent"
+                               Foreground="White"
+                               BorderThickness="0"
+                               HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Left"
+                               Click="BtnGestionSites_Click"/>
+
+                        <Button x:Name="btnGestionServices" 
+                               Content="Gérer Services" 
+                               Margin="10,5"
+                               Padding="10,2"
+                               Background="Transparent"
+                               Foreground="White"
+                               BorderThickness="0"
+                               HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Left"
+                               Click="BtnGestionServices_Click"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Info mode en bas -->
+                <TextBlock Grid.Row="2"
+                          x:Name="txtModeActuel" 
+                          Text="Mode : Visiteur" 
+                          Foreground="White"
+                          FontSize="12"
+                          Opacity="0.7"
+                          Margin="15"
+                          TextAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <!-- Contenu principal -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Titre -->
+            <Border Grid.Row="0" Background="#1976D2" Padding="20,22">
+                <TextBlock x:Name="txtTitre" 
+                          Text="Employés" 
+                          FontSize="22" 
+                          Foreground="White"
+                          VerticalAlignment="Center"/>
+            </Border>
+
+            <!-- Zone de contenu -->
+            <Grid x:Name="contentGrid" Grid.Row="1" Margin="20">
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

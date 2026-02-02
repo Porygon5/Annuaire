@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AnnuaireModel\AnnuaireModel.csproj" />
-    <ProjectReference Include="..\AnnuaireTransverse\AnnuaireTransverse.csproj" />
   </ItemGroup>
 
 </Project>
