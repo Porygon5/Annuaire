@@ -32,7 +32,6 @@ namespace AnnuaireWpfApp.Views
             }
             else
             {
-                // recherche insensible à la casse
                 var employes = ServiceLocator.EmployeService.GetAll();
                 var resultats = employes.Where(emp => 
                     emp.Nom.ToLower().Contains(searchTerm.ToLower()) ||

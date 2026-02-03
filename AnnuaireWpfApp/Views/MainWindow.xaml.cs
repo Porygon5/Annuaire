@@ -161,23 +161,13 @@ namespace AnnuaireWpfApp.Views
         private void AfficherSites()
         {
             contentGrid.Children.Clear();
-            var txt = new System.Windows.Controls.TextBlock
-            {
-                Text = "Liste des sites - À implémenter",
-                FontSize = 16
-            };
-            contentGrid.Children.Add(txt);
+            contentGrid.Children.Add(new SitesView());
         }
 
         private void AfficherServices()
         {
             contentGrid.Children.Clear();
-            var txt = new System.Windows.Controls.TextBlock
-            {
-                Text = "Liste des services - À implémenter",
-                FontSize = 16
-            };
-            contentGrid.Children.Add(txt);
+            contentGrid.Children.Add(new ServicesView());
         }
 
         private void AfficherGestionEmployes()
