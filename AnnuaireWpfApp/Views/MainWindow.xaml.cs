@@ -173,34 +173,19 @@ namespace AnnuaireWpfApp.Views
         private void AfficherGestionEmployes()
         {
             contentGrid.Children.Clear();
-            var txt = new System.Windows.Controls.TextBlock
-            {
-                Text = "Gestion des employés - À implémenter",
-                FontSize = 16
-            };
-            contentGrid.Children.Add(txt);
+            contentGrid.Children.Add(new GestionEmployesView());
         }
 
         private void AfficherGestionSites()
         {
             contentGrid.Children.Clear();
-            var txt = new System.Windows.Controls.TextBlock
-            {
-                Text = "Gestion des sites - À implémenter",
-                FontSize = 16
-            };
-            contentGrid.Children.Add(txt);
+            contentGrid.Children.Add(new GestionSitesView());
         }
 
         private void AfficherGestionServices()
         {
             contentGrid.Children.Clear();
-            var txt = new System.Windows.Controls.TextBlock
-            {
-                Text = "Gestion des services - À implémenter",
-                FontSize = 16
-            };
-            contentGrid.Children.Add(txt);
+            contentGrid.Children.Add(new GestionServicesView());
         }
     }
 }
